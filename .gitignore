@@ -2,3 +2,4 @@
 output
 *.zip
 __pychace__
+pelicanconf.py
