@@ -8,6 +8,9 @@ article,
 .summary-button-container {
   clear: both;
 }
+article h2 {
+  text-align: center;
+}
 
 .covid-mean {
   margin-top: 1rem;
