@@ -1,0 +1,15 @@
+{% if LINKS %}
+  {% from 'includes/sidebar/macros.jinja' import title %}
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <ul class="list-group" id="links">
+    {% for name, link in LINKS %}
+    <li class="list-group-item">
+      <a href="{{ link }}" target="_blank">{{ name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+{% endif %}
