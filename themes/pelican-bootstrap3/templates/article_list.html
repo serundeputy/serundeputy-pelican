@@ -10,8 +10,10 @@
                     </div>
                 {% endif %}
                 <div class="summary">{{ article.summary }}
+                  <div class="summary-button-container">
                     {% include 'includes/comment_count.html' %}
                     <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }} ...</a>
+                  </div>
                 </div>
             </article>
             <img class="mega-hash" src="/images/mega-hash.png" />
@@ -20,3 +22,10 @@
 
     {% include 'includes/pagination.html' %}
 {% endblock content %}
+
+<style>
+article,
+.mega-hash {
+  clear: both;
+}
+</style>

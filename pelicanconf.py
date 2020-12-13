@@ -22,6 +22,7 @@ AUTHOR_FEED_RSS = None
 LINKS = (
           ('{ about }', '/about'),
           ('{ contributions }', '/contributions'),
+          ('{ covid-data }', '/covid-data'),
         )
 
 # # Social widget
