@@ -1,5 +1,5 @@
 .env
 output
 *.zip
-__pychache__
+__pycache__
 pelicanconf.py
