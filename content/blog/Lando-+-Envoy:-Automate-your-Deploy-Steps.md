@@ -21,27 +21,22 @@ This post will show you how to add <span class="inline-code">envoy</span> as too
 <p>
 To add <span class="inline-code">envoy</span> tooling to your <span class="inline-code">.lando.yml</span> file add the following <span class="inline-code">run</span> step:
 
-<pre>
-<code class="yaml">
+```yaml
 services:
   appserver:
     run:
       - cd $LANDO_MOUNT && composer install
       - composer global require laravel/envoy
-
-</code>
-</pre>
+```
 
 And a corresponding <span class="inline-code">tooling</span> entry:
 
-<pre>
-<code class="yaml">
+```yaml
 # See: https://docs.lndo.io/config/tooling.html
 tooling:
   envoy:
     service: appserver
-</code>
-</pre>
+```
 
 Now we are ready to start using Envoy, but first let's configure it.
 
@@ -52,8 +47,7 @@ Now we are ready to start using Envoy, but first let's configure it.
 <p>
 To use Envoy you will set up a file in the root of your project called: <span class="inline-code">Envoy.blade.php</span>. Here is mine:
 
-<pre>
-<code class="php">
+```python
 @servers(['web' => ['USER@SERVER_IP']])
 
 @task('ll', ['on' => 'web'])
@@ -72,8 +66,7 @@ To use Envoy you will set up a file in the root of your project called: <span cl
   drush bcim -y
   drush cc all
 @endtask
-</code>
-</pre>
+```
 
 The <span class="inline-code">Envoy.blade.php</span> file uses Laravel blade syntax and in it we define <span class="inline-code">servers</span> array and some <span class="inline-code">task</span>s.  In this example you'll want to replace <span class="inline-code">USER</span> with a user that has <span class="inline-code">ssh</span> access to the server in question and <span class="inline-code">SERVER_IP</span> with the <span class="inline-code">ip address</span> of the server you are deploying to.
 
@@ -91,11 +84,9 @@ You can define as many or few <span class="inline-code">task</span>s as you need
 <p>
 Now that we have our tasks set up in our <span class="inline-code">Envoy.blade.php</span> file we can run them. For example to <span class="inline-code">deploy</span> run:
 
-<pre>
-<code class="bash">
+```bash
 lando envoy run deploy --branch=master
-</code>
-</pre>
+```
 
 Running this one command runs all the tasks in the <span class="inline-code">deploy</span> task!
 
@@ -117,8 +108,10 @@ If you are so inclined follow me on twitter: <a href="https://twitter.com/serund
 
 </p>
 
-
 <style>
+.entry-content h2 {
+  text-align: left;
+}
 .inline-code {
   font-family: monospace;
 }
