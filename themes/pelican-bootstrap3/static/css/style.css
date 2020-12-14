@@ -14,6 +14,9 @@ article h2 {
 .entry-content h2 {
   text-align: left !important;
 }
+article p {
+  font-size: 1.6rem;
+}
 .covid-mean {
   margin-top: 1rem;
   font-size: 1.8rem;
