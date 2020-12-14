@@ -1,6 +1,6 @@
-Title: { ? A Backdrop CMS Dev Workflow ? }
+Title: { A Backdrop CMS Dev Workflow }
 Date: 2017-08-02
-Category: blog
+Category: blog, backdrop
 
 
 <div style="float: left; margin-right: 9px;">
@@ -9,7 +9,7 @@ Category: blog
 <p>DevOps and Website development can be a daunting and sometimes fragile business. That is where best practices come into play. So when it came time to #redesign <em>serundeputy.io</em> I decided to take advantage of some of the best practices that Backdrop and Web Development at large have to offer.
 
 <ul style="margin-left: 577px;">
-	<li><a href="https://docs.lndo.io">Lando</a> ~ Lando is a free, open source and cross-platform local development environment tool built on Docker container technology. It is the successor project to Kalabox.</li>
+	<li><a href="https://docs.lndo.io">Lando</a> ~ Lando is a free, open  and cross-platform local development environment tool built on Docker container technology. It is the successor project to Kalabox.</li>
 	<li><a href="https://backdropcms.org">Backdrop CMS</a> Configuration Management ~ Manage site configuration in code.</li>
 	<li><a href="http://sass-lang.com/">SASS</a> ~ For quite sometime I've been slumming it with straight <span class="inline-code">css</span> here on <em>serundeputy.io</em>.
  So this was a welcome improvement.</li>
@@ -27,9 +27,7 @@ With a single <code class="bash">.lando.yml</code> file I get a dockerized devel
 <br />
 Here is the <code class="bash">.lando.yml</code> config file for this site:
 
-
-<pre>
-<code class="yaml">
+```yaml
 # Backdrop recipe
 name: serundeputy
 
@@ -121,8 +119,8 @@ tooling:
     service: node-cli
   gulp:
     service: node-cli
-</code>
-</pre>
+```
+
 Drop this file into your project root and <code class="bash">lando start</code> and boom! You are up and running.
 </p>
 
@@ -133,60 +131,54 @@ This one is near and dear to my ?.  Configure views, menu items, layouts, export
 <ul>
   <li>Configure a nested web root.  The project root looks like this:</li>
 </ul>
-<pre>
-<code class="bash">  
+
+```bash
 - serundeputy/
     - config/
         - active/
         - staging/
     - www/
-</code>
-</pre>
+```
+
 Here the <code class="bash">www/</code> directory is your <code class="php">BACKDROP_ROOT</code> and <code class="bash">serundeputy/</code> is the project and <code class="bash">git</code> root.
 <ul>
   <li>Now configure your <code class="bash">settings.php</code> to point at your config directories:</li>
 </ul>
-<pre>
-<code class="lang-php">
+
+```python
 $config_directories['active'] = '../config/active';
 $config_directories['staging'] = '../config/staging';
-</code>
-</pre>
+```
 
 I am using the versioned staging directory approach to configuration management and so I have the <code class="bash">staging/</code> under version control and the <code class="bash">active/</code> directory is <code class="bash">.gitignore</code>'d.  Like so:
 
-<pre>
-<code class="bash">
+```bash
 # Ignore active config
 config/active
-</code>
-</pre>
+```
 
 Where the <code class="bash">.gitignore</code> file is directly in the project root. Now when you make a configuration change like adding a block to a layout or any configuration change in the Backdrop UI and save it you can export it to code, add it to version control, deploy it, and import it on the production server (or another team members local when they pull new code).
 
 Make a configuration change, for example, change the site name and then export it to code:
-<pre>
-<code class="bash">
+
+```bash
 lando drush bcex
-</code>
-</pre>
+```
 
 Add the newly exported code to git and push up the changes:
-<pre>
-<code class="bash">
+
+```bash
 git add -A
 git commit -m "Updating site name."
 git push origin {branch_name}
-</code>
-</pre>
+```
 
 Now on the production server pull the code in and import the configuration:
-<pre>
-<code class="bash">
+
+```bash
 git pull origin {branch_name}
 drush bcim -y
-</code>
-</pre>
+```
 
 The command <code class="bash">drush bcex</code> is 'Backdrop Configuration Export' command and the <code class="bash">drush bcim</code> is the 'Backdrop Configuration Import' command.
 </p>
@@ -195,8 +187,7 @@ The command <code class="bash">drush bcex</code> is 'Backdrop Configuration Expo
 
 With <code class="bash">lando</code> it is very easy to include tooling and services on a per project basis and that is exactly what I've done here.  At the bottom of the <code class="bash">.lando.yml</code> there is a tooling and services section:
 
-<pre>
-<code class="yaml">
+```yaml
 services:
   node-cli:
     type: node:6.10
@@ -211,16 +202,13 @@ tooling:
     service: node-cli
   gulp:
     service: node-cli
-</code>
-</pre>
+```
 
 This adds a <code class="bash">npm</code>, <code class="bash">node</code>, and <code class="bash">gulp</code> to the app.  This coupled with the <code class="bash">gulpfile.js</code> allows me to use SASS!  Here is how to watch the SASS files:
 
-<pre>
-<code class="bash">
+```bash
 lando gulp
-</code>
-</pre>
+```
 
 <h3>Composer</h3>
 <p>
@@ -228,26 +216,26 @@ The previous iteration of this site had a twitter feed with a vertical display o
 </p>
 <p>
 Googling around led me to the conclusion that most PHP developers are using the <code class="bash">abraham/twitteroauth</code> library.  So I decided to use this as well. Pull in the library:
-<pre>
-<code class="bash">
+
+```bash
 composer require abraham/twitteroauth
-</code>
-</pre>
+```
+
 Now I wrote a simple custom module to pull in the library and interact with the twitter API to pull in my tweets and get the markup I needed to make the horizontal display.  At the top of the <code class="bash">serundeputy_tweets.module</code> file is where we pull in the <code class="bash">abraham/twitteroauth</code> it looks like this:
-<pre>
-<code class="php">
+
+```python
 require_once BACKDROP_ROOT . "/../vendor/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-</code>
-</pre>
+```
+
 This technique will allow me to pull in any composer library and load up the <code class="bash">autoloader.php</code> and then import the library with a <code class="bash">use</code> statement. Now the module has access the <code class="bash">abraham/twitteroauth</code> and all the functions it provides to interact with the twitter API!
 </p>
 
 <h3>Conclusion</h3>
-Leveraging the power of modern dev tools I now have a sane, dare I say even fun way, to develop new features and iterations of the <i>serundeputy.io</i> site!  You can see the full source code of the site on GitHub: <a href="https://github.com/serundeputy/serundrop">serundeputy/serundrop</a>.
+Leveraging the power of modern dev tools I now have a sane, dare I say even fun way, to develop new features and iterations of the <i>serundeputy.io</i> site!  You can see the full  code of the site on GitHub: <a href="https://github.com/serundeputy/serundrop">serundeputy/serundrop</a>.
 
-External links and resources:
+External links and res:
 <ul>
   <li>Backdrop CMS: <a href="https://backdropcms.org">Backdrop</a></li>
   <li>Lando local dev stack: <a href="https://docs.lndo.io">Lando</a></li>
