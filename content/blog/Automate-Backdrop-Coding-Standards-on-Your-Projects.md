@@ -3,14 +3,14 @@ Date: 2018-07-27
 Category: blog
 
 
-<h2>Backdrop Coder</h2>
+## Backdrop Coder
 <hr />
 
 <p>
 <a href="https://packagist.org/packages/backdrop/coder">Backdrop coder</a> is a packagist package that provides a library that <a href="https://packagist.org/packages/squizlabs/php_codesniffer"><span class="inline-code">phpcs</span></a> uses to check your code against the standards defined on <a href="https://api.backdropcms.org">Backdrop CMS API</a> site. To download and use the library is very easy and I'll show you how! Adhering to objective coding standards is a great way to keep your application lean and healthy. It is also an easy way to get started with Continuous Integration (CI) if you and your team have been eyeing that but unable to make the leap.
 </p>
 
-<h2>Install the Backdrop Coder Library</h2>
+## Install the Backdrop Coder Library
 <hr />
 
 To install the <span class="inline-code">backdrop/coder</span> library we will use <a href="https://getcomposer.org/">composer</a> in my case I'm using <a href="https://docs.devwithlando.io">Lando</a> which installs composer for us on all <span class="inline-code">PHP</span> applications.
@@ -50,13 +50,10 @@ That is quite a lot to remember to type in order to run your code checking! So, 
 </p>
 
 
-<h2>Configure <span class="inline-code">composer.json</span> and Running the Checks Locally</h2>
+## Configure <span class="inline-code">composer.json</span> and Running the Checks Locally
 <hr />
 
-<p>
-
 Here is a copy of my <span class="inline-code">composer.json</span> file:
-
 ```json
 {
     "require": {
@@ -75,17 +72,13 @@ Here is a copy of my <span class="inline-code">composer.json</span> file:
 The important bit for code standards is adding the <span class="inline-code">scripts</span> key with a <span class="inline-code">test</span> key and inside of <span class="inline-code">test</span> we drop two <span class="inline-code">phpcs</span> commands to test the code in <span class="inline-code">www/modules/custom</span> and <span class="inline-code">www/themes/serundeputy</span>, which will test the code in my custom modules and custom theme.
 
 Now to run the whole shebang we just need a simple line:
-
 ```bash
 lando composer test
 ```
 
 Much easier! 
 
-</p>
-
-
-<h2>Configure CI</h2>
+## Configure CI
 <hr />
 
 Now to add it to our CI process (or make your first CI process if you don't already have one)! I'll use the <a href="https://travis-ci.org/">Travis CI</a> service.  If you don't have a TravisCI account head over there and sign up for one and you can even sign in with your <a href="https://github.com">GitHub</a> account.  Once you are signed into Travis head over to your profile page and enable Travis for your code repo:
@@ -126,7 +119,7 @@ Now with each PR you and your team can make sure the code going into the project
 
 </p>
 
-<h2>Conclusion</h2>
+## Conclusion
 <hr />
 
 <p>
