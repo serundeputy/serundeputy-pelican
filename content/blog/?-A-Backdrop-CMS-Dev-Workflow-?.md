@@ -1,5 +1,6 @@
 Title: { A Backdrop CMS Dev Workflow }
 Date: 2017-08-02
+Authors: Geoff St. Pierre
 Category: blog, backdrop
 
 

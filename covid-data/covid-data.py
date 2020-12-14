@@ -19,19 +19,19 @@ def get_file(date):
     r = req.get(base_url + date + '/download')
     with open(date + '.zip', 'wb') as outfile:
         outfile.write(r.content)
-    try:
-        f = open(date + '.zip')
-        if (f):
-            return True
-        else:
-            return False
-    except IOError:
-        print('Could not open: ' + date + '.zip No such file.') 
-    finally:
-        f.close
+    # try:
+    #     f = open(date + '.zip')
+    #     if (f):
+    #         return True
+    #     else:
+    #         return False
+    # except IOError:
+    #     print('Could not open: ' + date + '.zip No such file.') 
+    # finally:
+    #     f.close
 
 def file_unzip(path_of_zip, directory_to_extract_to):
-    os.mkdir(directory_to_extract_to)
+    os.system('mkdir -p ' + directory_to_extract_to)
     with zipfile.ZipFile(path_of_zip, 'r') as zip_ref:
         zip_ref.extractall(directory_to_extract_to)
 
@@ -64,13 +64,14 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
     print('\t2 wk Mean:\t\t' + twoWkMean)
     print('\tDelta:\t\t\t' + delta)
     print('\n')
-    original_stdout = sys.stdout
-    with open('content/blog/' + date + '-' + region + '.md', 'w+') as outfile:
-        sys.stdout = outfile
-        if (region == 'MA' and cases.columns[2] != 'DeathsConfNew'):
+    if (region == 'MA' and cases.columns[2] != 'DeathsConfNew'):
+        original_stdout = sys.stdout
+        with open('content/blog/' + date + '-' + region + '.md', 'w+') as outfile:
+            sys.stdout = outfile
             print('Title: ' + date + ' Covid-19 Two Week Rolling Average')
             today = dt.today().strftime('%Y-%m-%d')
             print('Date: ' + today)
+            print('Authors: Geoff St. Pierre')
             print('Category: blog, covid-19')
             print('\n')
             print('<div class="covid-data-container">')
@@ -84,7 +85,11 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('  </div>')
             print('</div>')
             print('\n')
-        else:
+        sys.stdout = original_stdout
+    else:
+        original_stdout = sys.stdout
+        with open('content/blog/' + date + '-MA.md', 'a+') as outfile:
+            sys.stdout = outfile
             print('<div class="covid-data-container">')
             print('  <div class="col-md-8">')
             print('    <img src="/images/' + date + '-' + region + '-plot.png" width="100%">')
@@ -96,8 +101,7 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('  </div>')
             print('</div>')
             print('\n')
-
-        print('<div>Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
+            print('<div>Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
         sys.stdout = original_stdout
 
 def plot(data, date, region = 'MA'):
@@ -124,28 +128,18 @@ def plot(data, date, region = 'MA'):
     plt.savefig('content/images/' + date + '-' + region + '-plot.png')
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
-# if (get_file(file_name)):
-#     file_unzip(file_name, 'covid-data/data/' + file_name)
-# else:
-#     print('Could not retrieve file: ' + file_name + ' try again later.')
-# exit()
+#get_file(file_name)
+#file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
+#exit()
 
-# cases = pd.read_csv('covid-data/data/'+ file_name + '/Cases.csv')
-# hampdenCases = cases[cases['County'] == 'Hampden']
+cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
+hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
+hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
 # deaths = pd.read_csv('covid-data/data/' + file_name + '/DeathsReported.csv')
-deaths = pd.read_csv('covid-data/data/december-13-2020/DeathsReported.csv')
-print(deaths.columns[2])
-exit()
+
 plot(cases.tail(14), file_name)
-plot(hampdenCases.tail(14), file_name)
-plot(deaths.tail(14), file_name)
+plot(hampdenCases.tail(14), file_name, 'Hampden')
+# plot(deaths.tail(14), file_name)
 get_interval_mean(cases, file_name, 2, 'MA')
-get_interval_mean(cases, file_name, 2, 'Hampden')
-get_interval_mean(deaths, file_name, 2, 'MA')
-
-
-# get_interval_mean(deaths, 3)
-# get_interval_mean(deaths, 2)
-
-#plot(cases12.tail(14), 'december-12-2020')
-#plot(hampdenCases11.tail(14), 'december-11-2020', 'Hampden')
+get_interval_mean(hampdenCases, file_name, 2, 'Hampden')
+# get_interval_mean(deaths, file_name, 2, 'MA')
