@@ -104,7 +104,7 @@ def write_28_day_rolling_component():
 
 # get_file('december-11-2020')
 # file_unzip('december-11-2020.zip', 'covid-data/data/december-11-2020')
-# 
+
 # get_file('december-12-2020')
 # file_unzip('december-12-2020.zip', 'covid-data/data/december-12-2020')
 # get_file('december-13-2020')
@@ -112,18 +112,18 @@ def write_28_day_rolling_component():
 # exit()
 
 # cases11 = pd.read_csv('covid-data/data/december-11-2020/Cases.csv')
-cases13 = pd.read_csv('covid-data/data/december-13-2020/Cases.csv')
 # countyCases11 = pd.read_csv('covid-data/data/december-11-2020/County.csv')
 # countyCases12 = pd.read_csv('covid-data/data/december-12-2020/County.csv')
 # hampdenCases11 = countyCases11[countyCases12['County'] == 'Hampden']
 # deaths = pd.read_csv('covid-data/data/december-11-2020/DeathsReported.csv')
 
+cases13 = pd.read_csv('covid-data/data/december-13-2020/Cases.csv')
 get_interval_mean(cases13, 'december-13-2020', 2, 'MA')
-# get_interval_mean(cases12, 'december-12-2020', 2, 'MA')
+plot(cases13.tail(14), 'december-13-2020')
+
 
 # get_interval_mean(deaths, 3)
 # get_interval_mean(deaths, 2)
 
 #plot(cases12.tail(14), 'december-12-2020')
-plot(cases13.tail(14), 'december-13-2020')
 #plot(hampdenCases11.tail(14), 'december-11-2020', 'Hampden')
