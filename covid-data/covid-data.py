@@ -55,6 +55,8 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
 
     prevPrev14Mean = prevTwoWksFrame[key].sum() / 14
     prev14Mean = twoWksFrame[key].sum() / 14
+    today = dt.today().strftime('%Y-%m-%d')
+    niceDate = today.strftime('%d %B %Y')
     title = key + ' for ' + region + ' (2 wk averages starting ' + str(weeksAgo) + ' weeks ago)'
     prevTwoWkMean = str(int(round(prevPrev14Mean)))
     twoWkMean = str(int(round(prev14Mean)))
@@ -68,8 +70,7 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
         original_stdout = sys.stdout
         with open('content/blog/' + date + '-' + region + '.md', 'w+') as outfile:
             sys.stdout = outfile
-            print('Title: ' + date + ' Covid-19 Two Week Rolling Average')
-            today = dt.today().strftime('%Y-%m-%d')
+            print('Title: ' + niceDate + ' Covid-19 Two Week Rolling Average')
             print('Date: ' + today)
             print('Authors: Geoff St. Pierre')
             print('Category: blog, covid-19')
@@ -92,7 +93,7 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             sys.stdout = outfile
             print('<div class="covid-data-container">')
             print('  <div class="col-md-8">')
-            print('    <img src="/images/' + date + '-' + region + '-plot.png" width="100%">')
+            print('    <img src="/images/' + date + '-' + region + '-' + ylabel + '-plot.png" width="100%">')
             print('  </div>')
             print('  <div class="col-md-4 covid-mean">')
             print('    <div>Prev. 2 Wk Mean: ' + prevTwoWkMean + '</div>')
@@ -106,6 +107,9 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
 
 def plot(data, date, region = 'MA'):
     key = data.columns[2]
+    ylabel = 'Cases'
+    if (key == 'DeathsConfNew'):
+        ylabel = 'Deaths'
     xData = pd.to_datetime(data.Date).dt.strftime('%d %b')
     lastRow = data.tail(1)
     if (region == 'MA'):
@@ -118,28 +122,33 @@ def plot(data, date, region = 'MA'):
     }
     fig, ax = plt.subplots()
     ax.plot(xData, data[key], **paramDict)
-    ax.set_title(region + ' Two Week Rolling Cases Reported\nEnding ' + str(endDate))
-    ax.set_ylabel('Cases')
+    title = region + ' Two Week Rolling Cases Reported\nEnding ' + str(endDate)
+    if (region == 'Hampden'):
+        title = region + ' County Two Week Rolling Cases Reported\nEnding ' + str(endDate)
+    elif (ylabel == 'Deaths'):
+        title = region + ' Two Week Rolling Deaths Reported\nEnding ' + str(endDate)
+    ax.set_title(title)
+    ax.set_ylabel(ylabel)
     ax.set_ylim(data[key].min() - 100, data[key].max() + 1000)
     for i, j in zip(xData, data[key]):
         ax.annotate(str(int(round(j))),xy=(i,j), xytext = (-14, 22), textcoords = 'offset points')
     fig.tight_layout()
     fig.autofmt_xdate()
-    plt.savefig('content/images/' + date + '-' + region + '-plot.png')
+    plt.savefig('content/images/' + date + '-' + region + '-' + ylabel + '-plot.png')
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
 #get_file(file_name)
 #file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
 #exit()
 
-cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
-hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
-hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
-# deaths = pd.read_csv('covid-data/data/' + file_name + '/DeathsReported.csv')
+# cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
+# hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
+# hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
+deaths = pd.read_csv('covid-data/data/december-14-2020/DeathsReported.csv')
 
-plot(cases.tail(14), file_name)
-plot(hampdenCases.tail(14), file_name, 'Hampden')
-# plot(deaths.tail(14), file_name)
-get_interval_mean(cases, file_name, 2, 'MA')
-get_interval_mean(hampdenCases, file_name, 2, 'Hampden')
+# plot(cases.tail(14), file_name)
+# plot(hampdenCases.tail(14), file_name, 'Hampden')
+plot(deaths.tail(14), file_name)
+# get_interval_mean(cases, file_name, 2, 'MA')
+# get_interval_mean(hampdenCases, file_name, 2, 'Hampden')
 # get_interval_mean(deaths, file_name, 2, 'MA')

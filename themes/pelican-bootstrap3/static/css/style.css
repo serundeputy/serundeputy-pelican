@@ -18,10 +18,18 @@ article p {
   font-size: 1.6rem;
 }
 .covid-mean {
-  margin-top: 1rem;
   font-size: 1.8rem;
 }
-
+@media screen and (min-width: 1000px) {
+  .covid-mean {
+    margin-top: 6rem;
+    font-size: 1.8rem;
+  }
+}
+.source-data {
+  clear: both;
+  text-align: center;
+}
 #sidebar .list-group, #sidebar .list-group-item {
     background-color: transparent;
 }

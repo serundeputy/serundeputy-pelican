@@ -3,3 +3,4 @@ output
 *.zip
 __pycache__
 pelicanconf.py
+covid-data/data

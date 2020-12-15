@@ -3,7 +3,7 @@ Date: 2016-01-31
 Category: blog
 
 
-<p><img alt="drop redirect logo" data-file-id="8" src="/files/inline-images/drop_301_redirect_logo.png" width="111" />Using drush with Backdrop CMS and Drupal</p>
+<p><img alt="drop redirect logo" data-file-id="8" src="/images/drop_301_redirect_logo.png" width="111" />Using drush with Backdrop CMS and Drupal</p>
 
 <p>The problem:</p>
 

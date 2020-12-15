@@ -28,4 +28,4 @@ Category: blog, covid-19
 </div>
 
 
-<div>Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>
+<div class="source-data">Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>
