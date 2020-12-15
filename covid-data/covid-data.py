@@ -144,9 +144,10 @@ def plot(data, date, region = 'MA'):
     plt.savefig('content/images/' + date + '-' + region + '-' + ylabel + '-plot.png')
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
-get_file(file_name)
-file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
-exit()
+
+# get_file(file_name)
+# file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
+# exit()
 
 cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
 hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
