@@ -43,6 +43,12 @@ def get_mult_files(start_date, end_date):
 def copy_file(date, file_name):
     os.system('mkdir -p content/images/' + date)
     os.system('cp covid-data/data/' + date + '/' + file_name + ' content/images/' + date + file_name)
+def get_ylabel(df):
+    ylabel = 'Cases'
+    if (df.columns[2] == 'DeathsConfNew'):
+        ylabel = 'Deaths'
+
+    return ylabel
 
 def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False):
     rowCount = cases.shape[0] - 1
@@ -53,10 +59,11 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
         print(prevTwoWksFrame)
         print(twoWksFrame)
 
+    ylabel = get_ylabel(cases)
     prevPrev14Mean = prevTwoWksFrame[key].sum() / 14
     prev14Mean = twoWksFrame[key].sum() / 14
     today = dt.today().strftime('%Y-%m-%d')
-    niceDate = today.strftime('%d %B %Y')
+    niceDate = dt.today().strftime('%d %B %Y')
     title = key + ' for ' + region + ' (2 wk averages starting ' + str(weeksAgo) + ' weeks ago)'
     prevTwoWkMean = str(int(round(prevPrev14Mean)))
     twoWkMean = str(int(round(prev14Mean)))
@@ -77,7 +84,7 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('\n')
             print('<div class="covid-data-container">')
             print('  <div class="col-md-8">')
-            print('    <img src="/images/' + date + '-' + region + '-plot.png" width="100%">')
+            print('    <img src="/images/' + date + '-' + region + '-' + ylabel + '-plot.png" width="100%">')
             print('  </div>')
             print('  <div class="col-md-4 covid-mean">')
             print('    <div>Prev. 2 Wk Mean: ' + prevTwoWkMean + '</div>')
@@ -102,7 +109,7 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('  </div>')
             print('</div>')
             print('\n')
-            print('<div>Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
+            print('<div class="source-data">Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
         sys.stdout = original_stdout
 
 def plot(data, date, region = 'MA'):
@@ -136,19 +143,19 @@ def plot(data, date, region = 'MA'):
     fig.autofmt_xdate()
     plt.savefig('content/images/' + date + '-' + region + '-' + ylabel + '-plot.png')
 
-file_name = dt.today().strftime('%B-%d-%Y').lower()
+file_name = 'december-13-2020' # dt.today().strftime('%B-%d-%Y').lower()
 #get_file(file_name)
 #file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
 #exit()
 
-# cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
-# hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
-# hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
-deaths = pd.read_csv('covid-data/data/december-14-2020/DeathsReported.csv')
+cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
+hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
+hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
+deaths = pd.read_csv('covid-data/data/' + file_name + '/DeathsReported.csv')
 
-# plot(cases.tail(14), file_name)
-# plot(hampdenCases.tail(14), file_name, 'Hampden')
+plot(cases.tail(14), file_name)
 plot(deaths.tail(14), file_name)
-# get_interval_mean(cases, file_name, 2, 'MA')
-# get_interval_mean(hampdenCases, file_name, 2, 'Hampden')
-# get_interval_mean(deaths, file_name, 2, 'MA')
+plot(hampdenCases.tail(14), file_name, 'Hampden')
+get_interval_mean(cases, file_name, 2, 'MA')
+get_interval_mean(deaths, file_name, 2, 'MA')
+get_interval_mean(hampdenCases, file_name, 2, 'Hampden')
