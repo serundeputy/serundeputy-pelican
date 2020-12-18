@@ -7,10 +7,6 @@ import modules.file_helpers as fh
 import modules.plot_helpers as ph
 import modules.positivity as pt
 
-# Mass.gov URL format example:
-# https://www.mass.gov/doc/covid-19-raw-data-december-11-2020/download
-base_url = 'https://www.mass.gov/doc/covid-19-raw-data-'
-
 def get_interval_df(df, weeksAgo = 2, prev = False):
     rowCount = df.shape[0] # - 1
     if (prev == False):
@@ -89,10 +85,10 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('<div class="source-data">Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
         sys.stdout = original_stdout
 
-file_name = 'december-17-2020' # dt.today().strftime('%B-%d-%Y').lower()
+file_name = dt.today().strftime('%B-%d-%Y').lower()
 
-# fh.get_file(file_name)
-# fh.file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
+fh.get_file(file_name)
+fh.file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
 # exit()
 
 cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')

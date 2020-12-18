@@ -2,6 +2,10 @@ import os as os
 import requests as req
 import zipfile
 
+# Mass.gov URL format example:
+# https://www.mass.gov/doc/covid-19-raw-data-december-11-2020/download
+base_url = 'https://www.mass.gov/doc/covid-19-raw-data-'
+
 # Download the data
 def get_file(date):
     r = req.get(base_url + date + '/download')
