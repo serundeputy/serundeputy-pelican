@@ -314,21 +314,35 @@
   border-bottom: 2px solid #ccc;
   margin-bottom: 2rem;
 }
+.logo-title-container {
+  display: block;
+}
 .header-serundeputy div img {
   max-height: 150px;
 }
-.logo-title-container {
-  width: 68%;
-  margin: 0 auto;
-}
 .header-serundeputy-logo {
-  display: inline-block;
-  float: left;
+  display: block;
+  text-align: center;
 }
 .header-title {
-  margin-left: 1rem;
-  font-size: 11rem;
-  font-weight: 100;
+  font-size: 7rem;
+  margin: 0;
+  text-align: center;
+}
+@media screen and (min-width: 1000px) {
+  .logo-title-container {
+    width: 68%;
+    margin: 0 auto;
+  }
+  .header-serundeputy-logo {
+    display: inline-block;
+    float: left;
+  }
+  .header-title {
+    margin-left: 1rem;
+    font-size: 11rem;
+    font-weight: 100;
+  }
 }
 .site-logos {
   text-align: center;
