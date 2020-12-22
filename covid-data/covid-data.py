@@ -17,9 +17,7 @@ def get_interval_df(df, weeksAgo = 2, prev = False):
 def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False):
     key = cases.columns[2]
     twoWksFrame = get_interval_df(cases)
-        # cases[rowCount - (weeksAgo - 1)*14:rowCount - (weeksAgo - 2)*14]
     prevTwoWksFrame = get_interval_df(cases, 2, True)
-        # cases[rowCount - weeksAgo*14:rowCount - (weeksAgo - 1)*14]
 
     if (verbose):
         print(prevTwoWksFrame)
