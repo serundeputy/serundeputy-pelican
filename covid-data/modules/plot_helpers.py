@@ -35,7 +35,7 @@ def plot(data, date, region = 'MA'):
         title = region + ' Two Week Rolling Deaths Reported\nEnding ' + str(endDate)
     ax.set_title(title)
     ax.set_ylabel(ylabel)
-    ax.set_ylim(data[key].min() - 100, data[key].max() + 1000)
+    ax.set_ylim(data[key].min() - 0.3*data[key].min(), data[key].max() + 0.3*data[key].max())
     for i, j in zip(xData, data[key]):
         ax.annotate(str(int(round(j))),xy=(i,j), xytext = (-14, 22), textcoords = 'offset points')
     fig.tight_layout()
