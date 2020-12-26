@@ -1,6 +1,6 @@
 Title: { redirect }
 Date: 2015-02-17
-Category: blog
+Category: backdrop
 
 
 <img src="https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png" width="88" alt="Backdrop Logo" style="float: right; margin: 10px;" />

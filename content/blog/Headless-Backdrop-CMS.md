@@ -1,6 +1,6 @@
 Title: { Headless Backdrop CMS }
 Date: 2015-12-26
-Category: blog
+Category: backdrop
 
 
 <p><img alt="drop redirect logo" data-file-id="8" src="/files/inline-images/drop_301_redirect_logo.png" width="111" />&nbsp;Headless is a big deal right?</p>

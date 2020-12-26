@@ -1,6 +1,6 @@
 Title: { Lando + Envoy: Automate your Deploy Steps }
 Date: 2018-07-29
-Category: blog
+Category: backdrop
 
 
 <h2>Why Envoy</h2>

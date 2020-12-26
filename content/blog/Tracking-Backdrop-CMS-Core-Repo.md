@@ -1,6 +1,6 @@
 Title: { Tracking Backdrop CMS Core Repo }
 Date: 2015-03-15
-Category: blog
+Category: backdrop
 
 
 <img src="/files/inline-images/drop_301_redirect_logo.png" width="88" alt="Backdrop Logo" style="float: left; margin-right: 10px;" />

@@ -1,6 +1,6 @@
 Title: { Backdrop VM }
 Date: 2015-04-21
-Category: blog
+Category: backdrop
 
 
 <img src="/files/bwpanda.jpg" width="177px" alt="Backdrop Logo" style="float: right; margin-left: 19px;" />

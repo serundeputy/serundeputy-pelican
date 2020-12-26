@@ -1,6 +1,6 @@
 Title: { git patches, apache modules and vagrant }
 Date: 2015-04-04
-Category: blog
+Category: backdrop
 
 
 <img src="/files/bd-git-apache-drupal-vagrant.png" width="161px" alt="Backdrop Logo" style="float: left; margin-right: 19px;" />

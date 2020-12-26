@@ -1,6 +1,6 @@
 Title: { All the Drupal; DrupalCon Nashville 2018 }
 Date: 2018-04-13
-Category: blog
+Category: event
 
 
 ## Traveling

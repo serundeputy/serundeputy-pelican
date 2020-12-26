@@ -1,6 +1,6 @@
 Title: { Writings }
 Date: 2017-08-01
-Category: blog
+Category: writings 
 
 
 <p>Stuff I wrote that is&nbsp;on the internet:</p>

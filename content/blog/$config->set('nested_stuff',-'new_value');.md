@@ -1,6 +1,6 @@
 Title: { $config->set('nested_stuff', 'new_value'); }
 Date: 2015-03-22
-Category: blog
+Category: backdrop
 
 
 <img src="https://backdropcms.org/files/inline-images/Drop.png" width="88"  alt="Backdrop Logo" style="float: right; margin-left: 10px; margin-bottom: 10px;" />

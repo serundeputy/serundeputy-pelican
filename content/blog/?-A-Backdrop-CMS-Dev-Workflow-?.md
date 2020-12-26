@@ -1,7 +1,7 @@
 Title: { A Backdrop CMS Dev Workflow }
 Date: 2017-08-02
 Authors: Geoff St. Pierre
-Category: blog, backdrop
+Category: backdrop
 
 
 <div style="float: left; margin-right: 9px;">

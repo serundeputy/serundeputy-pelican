@@ -1,6 +1,6 @@
 Title: { Contributions to Open Source }
 Date: 2017-04-12
-Category: blog
+Category: contributions
 
 
 <p><img alt="Lando Logo" class="writings__image" height="44" src="https://avatars3.githubusercontent.com/u/31605584?v=4&amp;s=200" width="44" />&nbsp; &nbsp; &nbsp;I contribute comments, testing, bug reports and PRs to the <a href="https://github.com/kalabox/lando">Lando</a>&nbsp;project.</p>

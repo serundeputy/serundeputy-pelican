@@ -1,6 +1,6 @@
 Title: { Redirect v1.x-1.0.0 released }
 Date: 2015-02-28
-Category: blog
+Category: backdrop
 
 
 <img src="/files/drop_301_redirect_logo.png" width="88"  alt="Backdrop Logo" style="float: right; margin: 10px;" />

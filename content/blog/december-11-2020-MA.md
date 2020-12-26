@@ -1,6 +1,6 @@
 Title: december-11-2020 Covid-19 Two Week Rolling Average
 Date: 2020-12-11
-Category: blog
+Category: covid-19
 
 
 <div class="covid-data-container">

@@ -1,6 +1,6 @@
 Title: Installing Backdrop on the Command Line (cli)
 Date: 2017-06-29
-Category: blog
+Category: backdrop
 
 
 <p>You can use drush to download and install Backdrop from the command line.<br />

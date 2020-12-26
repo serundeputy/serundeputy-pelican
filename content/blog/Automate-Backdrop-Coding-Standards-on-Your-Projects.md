@@ -1,6 +1,6 @@
 Title: { Automate Backdrop Coding Standards on Your Projects }
 Date: 2018-07-27
-Category: blog
+Category: backdrop
 
 
 ## Backdrop Coder

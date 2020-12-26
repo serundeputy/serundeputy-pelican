@@ -1,6 +1,6 @@
 Title: { Backdrop from Local to Live Server }
 Date: 2015-02-05
-Category: blog
+Category: backdrop
 
 
 <img src="https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png" width="88" alt="Backdrop Logo" style="float: left; margin: 10px;" />

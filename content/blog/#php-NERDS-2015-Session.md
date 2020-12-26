@@ -1,6 +1,6 @@
 Title: { #php NERDS 2015 Session }
 Date: 2015-09-11
-Category: blog
+Category: event
 
 
 Here is the full session of 'Intro to PHP' at NERD Summit 2015;

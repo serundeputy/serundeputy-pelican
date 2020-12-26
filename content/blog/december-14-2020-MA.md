@@ -1,7 +1,7 @@
 Title: december-14-2020 Covid-19 Two Week Rolling Average
 Date: 2020-12-14
 Authors: Geoff St. Pierre
-Category: blog, covid-19
+Category: covid-19
 
 
 <div class="covid-data-container">

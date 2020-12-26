@@ -1,6 +1,6 @@
 Title: { 2015 DCCT ~ Backdrop CMS Myths and Facts }
 Date: 2015-08-24
-Category: blog
+Category: backdrop
 
 
 <img src="/files/bd-cms_drupal_friends.png" width="161px" alt="Backdrop Logo" style="float: left; margin-right: 19px;" />

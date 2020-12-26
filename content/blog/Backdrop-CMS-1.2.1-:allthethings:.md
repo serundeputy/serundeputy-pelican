@@ -1,6 +1,6 @@
 Title: { Backdrop CMS 1.2.1 :allthethings: }
 Date: 2015-09-18
-Category: blog
+Category: backdrop
 
 
 <p>Upgraded to <a href="https://backdropcms.org">Backdrop CMS 1.2.1</a> today! &nbsp;Writing this sweet post using Ckeditor! &nbsp;woohooo ... all the things;</p>

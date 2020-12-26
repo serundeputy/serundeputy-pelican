@@ -1,6 +1,6 @@
 Title: { A useful .gitignore }
 Date: 2015-02-07
-Category: blog
+Category: backdrop
 
 
 <p>

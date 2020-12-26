@@ -1,6 +1,6 @@
 Title: { Using drush with Backdrop CMS }
 Date: 2016-01-31
-Category: blog
+Category: backdrop 
 
 
 <p><img alt="drop redirect logo" data-file-id="8" src="/images/drop_301_redirect_logo.png" width="111" />Using drush with Backdrop CMS and Drupal</p>
