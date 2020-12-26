@@ -6,10 +6,15 @@ article,
 .covid-data-container,
 .mega-hash,
 .summary-button-container {
+  padding: 2rem;
   clear: both;
+  background-color: #eee;
 }
 article h2 {
   text-align: center;
+}
+.mega-hash {
+  background-color: #fff;
 }
 .entry-content h2 {
   text-align: left !important;
