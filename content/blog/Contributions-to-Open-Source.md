@@ -7,7 +7,7 @@ Category: contributions
 
 <p>&nbsp;</p>
 
-<p><img alt="Backdrop CMS Logo" class="writings__image" data-file-id="18" height="44" src="/files/inline-images/Backdrop-Logo-Mark-Black.png" width="44" />&nbsp; &nbsp; &nbsp;<a href="https://backdropcms.org">Backdrop CMS</a> ~ core committer and contributor.</p>
+<p><img alt="Backdrop CMS Logo" class="writings__image" data-file-id="18" height="44" src="/images/Backdrop-Logo-Mark-Black.png" width="44" />&nbsp; &nbsp; &nbsp;<a href="https://backdropcms.org">Backdrop CMS</a> ~ core committer and contributor.</p>
 
 <p>&nbsp;</p>
 
@@ -19,7 +19,7 @@ Category: contributions
 
 <p>&nbsp;</p>
 
-<p><img alt="Drupal Logo" class="writings__image" data-file-id="19" height="44" src="/files/inline-images/druplicon-small.png" width="44" />&nbsp; &nbsp; I contribute to Drupal issue queues, review, and submit PRs to Drupal core and Drupal contrib projects.&nbsp;</p>
+<p><img alt="Drupal Logo" class="writings__image" data-file-id="19" height="44" src="/images/druplicon-small.png" width="44" />&nbsp; &nbsp; I contribute to Drupal issue queues, review, and submit PRs to Drupal core and Drupal contrib projects.&nbsp;</p>
 
 <p>&nbsp;</p>
 
