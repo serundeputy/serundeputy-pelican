@@ -185,6 +185,7 @@
       </div>
     </div>
   </div>
+<!-- end site logos -->
 
 <!-- begin navbar -->
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
@@ -256,8 +257,8 @@
 <!-- Content Container -->
 {% if PADDED_SINGLE_COLUMN_STYLE %}
     {% set content_class='col-md-8 col-md-offset-2' %}
-{% elif not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-    {% set content_class='col-sm-12' + (' col-sm-push-3' if SIDEBAR_ON_LEFT else '') %}
+{% elif not HIDE_SIDEBAR or ABOUT_ME or AVATAR or ZAZZLE %}
+    {% set content_class='col-sm-9' + (' col-sm-push-3' if SIDEBAR_ON_LEFT else '') %}
     {% set sidebar_class='col-sm-3' + (' col-sm-pull-9' if SIDEBAR_ON_LEFT else '') %}
 {% else %}
     {% set content_class='col-lg-12' %}
@@ -271,8 +272,8 @@
         {% if sidebar_class %}
         <div class="{{ sidebar_class }}" id="sidebar">
             <aside>
-                {% if ABOUT_ME or AVATAR %}
-                    {% include 'includes/aboutme.html' %}
+                {% if ABOUT_ME or AVATAR or ZAZZLE %}
+                    {% include 'includes/zazzle.html' %}
                 {% endif %}
             </aside>
         </div>
