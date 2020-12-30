@@ -1,6 +1,6 @@
-# serundeputy.io
+# [serundeputy.io](https://serundeputy.io)
 
-Geoff St. Piere (serundeputy) weblog.
+Geoff St. Pierre (serundeputy) weblog.
 
 ## pelican
 
