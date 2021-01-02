@@ -10,7 +10,7 @@ Category: backdrop
 <code>cd my-backdrop</code><br />
 You should get an output similar to this:</p>
 
-<p><img alt="" data-file-id="12" src="/images/drush-si-screenshot.png" width="808" /></p>
+<p><img alt="cli install backdrop w/ drush" data-file-id="12" src="/images/drush-si-screenshot.png" width="808" /></p>
 
 <p>Use <code class="inline">drush si</code> command to install Backdrop and set up the database.<br />
 <code> drush si --db-url="mysql://DB_USERNAME:DB_PASSWORD@localhost/DB_NAME" -y </code></p>
