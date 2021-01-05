@@ -85,15 +85,17 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
         sys.stdout = original_stdout
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
-# print(file_name)
+print(file_name)
 # exit()
 
-fh.get_file(file_name)
+# fh.get_file(file_name)
 # fh.file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
 # exit()
 
 # cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
 cases = pd.read_excel(file_name + '.xlsx', 'Cases (Report Date)')
+# print(cases.tail())
+# exit()
 # hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
 hampdenCases = pd.read_excel(file_name + '.xlsx', 'County_Daily')
 hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
