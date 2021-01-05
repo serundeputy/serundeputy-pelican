@@ -38,7 +38,8 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
     print('\tDelta:\t\t\t' + delta)
     print('\n')
     if (region == 'MA' and cases.columns[2] != 'DeathsConfNew'):
-        tests = pd.read_csv('covid-data/data/' + file_name + '/Testing2.csv')
+        # tests = pd.read_csv('covid-data/data/' + file_name + '/Testing2.csv')
+        tests = pd.read_excel(file_name + '.xlsx', 'Testing2 (Report Date)')
         tests2wks = get_interval_df(tests, 2)
         prevTests2wks = get_interval_df(tests, 2, True)
         avg_positivity = pt.positivity(twoWksFrame, tests2wks)
@@ -84,15 +85,20 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
         sys.stdout = original_stdout
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
-
-fh.get_file(file_name)
-fh.file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
+# print(file_name)
 # exit()
 
-cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
-hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
+fh.get_file(file_name)
+# fh.file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
+# exit()
+
+# cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
+cases = pd.read_excel(file_name + '.xlsx', 'Cases (Report Date)')
+# hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
+hampdenCases = pd.read_excel(file_name + '.xlsx', 'County_Daily')
 hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
-deaths = pd.read_csv('covid-data/data/' + file_name + '/DeathsReported.csv')
+# deaths = pd.read_csv('covid-data/data/' + file_name + '/DeathsReported.csv')
+deaths = pd.read_excel(file_name + '.xlsx', 'DeathsReported (Report Date)')
 
 ph.plot(cases.tail(14), file_name)
 ph.plot(deaths.tail(14), file_name)

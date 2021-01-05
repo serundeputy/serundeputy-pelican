@@ -4,8 +4,8 @@ output
 __pycache__
 pelicanconf.py
 covid-data/data
-.doc
-.docx
-.xlsx
-.xls
-.deb
+*.doc
+*.docx
+*.xlsx
+*.xls
+*.deb
