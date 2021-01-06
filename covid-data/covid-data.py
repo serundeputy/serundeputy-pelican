@@ -85,7 +85,6 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
         sys.stdout = original_stdout
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
-print(file_name)
 # exit()
 
 # fh.get_file(file_name)
