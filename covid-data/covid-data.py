@@ -3,6 +3,7 @@ import pandas as pd
 import sys as sys
 
 # My imports
+import modules.city_town as city_town_print
 import modules.file_helpers as fh
 import modules.plot_helpers as ph
 import modules.positivity as pt
@@ -82,23 +83,24 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('</div>')
             print('\n')
             print('<div class="source-data">Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
+            if (region == "Hampden"):
+                city_town_df = pd.read_excel('january-16-2021' + '.xlsx', 'Weekly_City_Town', engine = 'openpyxl')
+                city_town_print.city_town(city_town_df)
         sys.stdout = original_stdout
 
 file_name = dt.today().strftime('%B-%d-%Y').lower()
 # exit()
 
-# fh.get_file(file_name)
+fh.get_file(file_name)
+# exit()
+
+# MA switched raw data reporting to xlsx sheets.
 # fh.file_unzip(file_name + '.zip', 'covid-data/data/' + file_name)
 # exit()
 
-# cases = pd.read_csv('covid-data/data/' + file_name + '/Cases.csv')
 cases = pd.read_excel(file_name + '.xlsx', 'Cases (Report Date)', engine='openpyxl')
-# print(cases.tail())
-# exit()
-# hampdenCases = pd.read_csv('covid-data/data/' + file_name + '/County.csv')
 hampdenCases = pd.read_excel(file_name + '.xlsx', 'County_Daily', engine='openpyxl')
 hampdenCases = hampdenCases[hampdenCases['County'] == 'Hampden']
-# deaths = pd.read_csv('covid-data/data/' + file_name + '/DeathsReported.csv')
 deaths = pd.read_excel(file_name + '.xlsx', 'DeathsReported (Report Date)', engine='openpyxl')
 
 ph.plot(cases.tail(14), file_name)

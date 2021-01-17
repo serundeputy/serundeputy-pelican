@@ -31,6 +31,26 @@ article p {
     font-size: 1.8rem;
   }
 }
+div.red {
+  color: #fff;
+  background-color: red;
+}
+div.yellow {
+  background-color: yellow;
+}
+div.green {
+  background-color: green;
+}
+div.gray {
+  background-color: gray;
+}
+.town-block {
+  padding: 1rem;
+}
+.town {
+  font-size: 2rem;
+  font-weigth: 666;
+}
 .source-data {
   clear: both;
   text-align: center;
