@@ -13,6 +13,9 @@ article,
 article h2 {
   text-align: center;
 }
+article a {
+  color: #23527c;
+}
 .mega-hash {
   background-color: #fff;
 }
