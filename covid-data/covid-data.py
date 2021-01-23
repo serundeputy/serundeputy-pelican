@@ -84,7 +84,7 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
             print('\n')
             print('<div class="source-data">Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>')
             if (region == "Hampden"):
-                city_town_df = pd.read_excel('january-16-2021' + '.xlsx', 'Weekly_City_Town', engine = 'openpyxl')
+                city_town_df = pd.read_excel(file_name + '.xlsx', 'Weekly_City_Town', engine = 'openpyxl')
                 city_town_print.city_town(city_town_df)
         sys.stdout = original_stdout
 
