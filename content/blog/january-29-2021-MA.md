@@ -46,7 +46,7 @@ Category: covid-19
 <div class="source-data">Source data: <a href="www.mass.gov/info-details/covid-19-response-reporting">Mass.gov</a></div>
 <div class="container-fluid">
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Chicopee </span>
@@ -57,7 +57,7 @@ Category: covid-19
 </div>
 		</div>
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Ludlow </span>
@@ -70,7 +70,7 @@ Category: covid-19
 
 	<div class="row">
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Palmer </span>
@@ -83,7 +83,7 @@ Category: covid-19
 
 	</div>
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> West Springfield </span>
@@ -94,7 +94,7 @@ Category: covid-19
 </div>
 		</div>
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Springfield </span>
@@ -107,7 +107,7 @@ Category: covid-19
 
 	<div class="row">
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Wilbraham </span>
@@ -120,7 +120,7 @@ Category: covid-19
 
 	</div>
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Agawam </span>
@@ -131,7 +131,7 @@ Category: covid-19
 </div>
 		</div>
 
-		<div class=" gray  col-md-4">
+		<div class=" yellow  col-md-4">
 
 <div class="town-block">
 			<span class="town"> Longmeadow </span>
@@ -144,7 +144,7 @@ Category: covid-19
 
 	<div class="row">
 
-		<div class=" gray  col-md-4">
+		<div class=" red  col-md-4">
 
 <div class="town-block">
 			<span class="town"> East Longmeadow </span>

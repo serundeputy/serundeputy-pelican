@@ -14,11 +14,23 @@ def city_town(ma_df):
     for i in range(len(towns)):
         color_class = 'gray'
         if ((i + 1) % 3 == 0): print('\t<div class="row">\n')
-        if (ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 3):
+        if (
+                ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 3
+                or
+                ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0].lower() == 'red'
+                ):
             color_class = 'red'
-        elif (ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 2):
+        elif (
+                ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 2
+                or
+                ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0].lower() == 'yellow'
+                ):
             color_class = 'yellow'
-        elif (ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 1):
+        elif (
+                ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 1
+                or
+                ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0].lower() == 'green'
+                ):
             color_class = 'green'
         elif (ma_df[ma_df["City/Town"] == towns[i]]["Color"].tail(1).values[0] == 0):
             color_class = 'gray'
