@@ -88,7 +88,8 @@ def get_interval_mean(cases, date, weeksAgo = 2, region = 'MA', verbose = False)
                 city_town_print.city_town(city_town_df)
         sys.stdout = original_stdout
 
-file_name = dt.today().strftime('%B-%d-%Y').lower()
+file_name = dt.today().strftime('%B-%d-%Y').lower().replace("-0", "-")
+# print(file_name.replace("-0", "-"))
 # exit()
 
 fh.get_file(file_name)
