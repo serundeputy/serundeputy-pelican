@@ -38,8 +38,8 @@ DEFAULT_PAGINATION = 3
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
-PLUGIN_PATHS = ['/Users/serundeputy/code/personal/pelican-plugins']
-PLUGINS = ['i18n_subsites', ]
+# PLUGIN_PATHS = ['/Users/serundeputy/code/personal/pelican-plugins']
+# PLUGINS = ['i18n_subsites', ]
 THEME = 'themes/pelican-bootstrap3'
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 STATIC_PATHS = {
